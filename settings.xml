@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Application Settings</comment>
+<entry key="micro-break-duration">10000</entry>
+<entry key="show-controlls">true</entry>
+<entry key="monitor-power-usage-controll">AUTO</entry>
+<entry key="micro-break-interval">900000</entry>
+<entry key="show-cursor">true</entry>
+</properties>

@@ -1,0 +1,235 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pl.rzarajczyk</groupId>
+    <artifactId>break-time</artifactId>
+    <packaging>jar</packaging>
+    <version>0.2.6-SNAPSHOT</version>
+    <name>Break Time!</name>
+    <url>http://www.rafal-zarajczyk.pl</url>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skip-tests>true</skip-tests>
+        <org.springframework.version>3.1.0.RELEASE</org.springframework.version>
+    </properties>
+    <scm>
+        <developerConnection>scm:svn:https://break-time.googlecode.com/svn/tags/break-time-0.2.2</developerConnection>
+    </scm>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- sets java version -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+                <version>2.3.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12</version>
+                <configuration>
+                    <skipTests>${skip-tests}</skipTests>
+                </configuration>
+            </plugin>
+
+            <!-- builds executable jar -->
+<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>pl.rzarajczyk.breaktime.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <version>2.3.2</version>
+            </plugin>-->
+
+            <!-- builds executable jar with dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>pl.rzarajczyk.breaktime.Main</mainClass>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.handlers</resource>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                                    <resource>META-INF/spring.schemas</resource>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>r09</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.0-rc1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>platform</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.10</version>
+        </dependency>
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.6.9</version>
+
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.6.9</version>
+		</dependency>
+
+		<dependency>
+
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>akathist-repository</id>
+            <name>Akathist Repository</name>
+            <url>http://www.9stmaryrd.com/maven</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>akathist-repository</id>
+            <name>Akathist Repository</name>
+            <url>http://www.9stmaryrd.com/maven</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <profiles>
+        <profile>
+            <id>deployment</id>
+            <properties>
+                <skip-tests>false</skip-tests>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                        <artifactId>launch4j-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>l4j-clui</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>launch4j</goal>
+                                </goals>
+                                <configuration>
+                                    <headerType>gui</headerType>
+                                    <outfile>target/${project.artifactId}-${project.version}.exe</outfile>
+                                    <jar>target/${project.artifactId}-${project.version}.jar</jar>
+                                    <errTitle>${project.name}</errTitle>
+        <!--                            <icon>src/main/resources/tray-icon.png</icon>-->
+                                    <classPath>
+                                        <mainClass>pl.rzarajczyk.breaktime.Main</mainClass>
+                                        <addDependencies>true</addDependencies>
+                                        <preCp />
+                                    </classPath>
+                                    <jre>
+                                        <minVersion>1.6.0</minVersion>
+                                    </jre>
+                                    <versionInfo>
+                                        <fileVersion>0.0.0.0</fileVersion>
+                                        <txtFileVersion>${project.version}</txtFileVersion>
+                                        <fileDescription>${project.name}</fileDescription>
+                                        <copyright>Rafał Zarajczyk</copyright>
+                                        <productVersion>0.0.0.0</productVersion>
+                                        <txtProductVersion>${project.version}</txtProductVersion>
+                                        <productName>${project.name}</productName>
+                                        <internalName>${project.artifactId}</internalName>
+                                        <originalFilename>${project.artifactId}.exe</originalFilename>
+                                    </versionInfo>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <configuration>
+                            <tagBase>https://break-time.googlecode.com/svn/tags</tagBase>
+                            <tagNameFormat>v_@{project.version}</tagNameFormat>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

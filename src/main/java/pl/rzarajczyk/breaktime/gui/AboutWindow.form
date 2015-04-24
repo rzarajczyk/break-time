@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.4" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="title" type="java.lang.String" value="BreakTime - About"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="aboutPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+                      <Component id="okButton" min="-2" pref="96" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="aboutPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="okButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="okButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="OK"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="okButtonMouseClicked"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JPanel" name="aboutPanel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder title="About..."/>
+          </Border>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="359" max="32767" attributes="0"/>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="urlDescLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="licenseDescLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="authorDescLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="authorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lisenseLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="urlLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="versionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="versionDescLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="105" max="32767" attributes="0"/>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="authorDescLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="authorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="licenseDescLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lisenseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="urlDescLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="urlLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="versionDescLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="versionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="authorDescLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Author:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="authorLabel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="0" id="Active Caption" palette="2" red="0" type="palette"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Rafal Zarajczyk"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="authorLabelMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="licenseDescLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="License:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lisenseLabel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="0" id="Active Caption" palette="2" red="0" type="palette"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Apache License 2.0"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lisenseLabelMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="urlDescLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Project page: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="urlLabel">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="80" green="0" id="Active Caption" palette="2" red="0" type="palette"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="https://code.google.com/p/break-time"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="urlLabelMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="versionDescLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Version:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="versionLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0.9"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
