@@ -1,6 +1,6 @@
 package pl.rzarajczyk.utils.system.notification;
 
-import com.sun.awt.AWTUtilities;
+//import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
@@ -25,7 +25,8 @@ class NotificationJFrame extends javax.swing.JFrame {
     public NotificationJFrame(String title, String text, File iconFile) {
         initComponents();
         Shape shape = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 20, 20);
-        AWTUtilities.setWindowShape(this, shape);
+//        AWTUtilities.setWindowShape(this, shape);
+        setShape(shape);
         setOpacity(0.85f);
         this.getContentPane().setBackground(new Color(21, 21, 21));
         this.setLocation(SwingUtils.getScreenWidth() - this.getWidth() - 20, 100);

@@ -12,6 +12,7 @@ import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import pl.rzarajczyk.breaktime.BreakTimeSettings;
+import pl.rzarajczyk.breaktime.TrayIconRenderer;
 import pl.rzarajczyk.utils.log.LazyLogFactory;
 
 public class Application {

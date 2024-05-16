@@ -14,7 +14,6 @@
 
     <context:annotation-config />
     <task:annotation-driven/>
-    <aop:aspectj-autoproxy proxy-target-class="true"/>
 
 
     <bean id="tray" class="pl.rzarajczyk.breaktime.Tray" depends-on="tray-icon-renderer" />
@@ -31,7 +30,7 @@
     <bean id="break-manager" class="pl.rzarajczyk.breaktime.BreakManager" />
     <bean id="settings" class="pl.rzarajczyk.breaktime.BreakTimeSettings" />
     <bean id="localization" class="pl.rzarajczyk.breaktime.utils.localization.Localization" />
-    <bean id="version-checker" class="pl.rzarajczyk.breaktime.VersionChecker" />
+    <!--<bean id="version-checker" class="pl.rzarajczyk.breaktime.VersionChecker" />-->
 
     <bean id="localization-aspect" class="pl.rzarajczyk.breaktime.utils.localization.LocalizationAspect" />
 
