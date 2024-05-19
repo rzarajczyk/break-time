@@ -29,7 +29,15 @@ public class Configuration {
     private File temp;
     private Log log = LazyLogFactory.getLog(getClass());
     
-    public Configuration() throws IOException {
+    private static Configuration instance = null;
+    
+    public static Configuration instance() throws Exception {
+        if (instance == null)
+            instance = new Configuration();
+        return instance;
+    }
+    
+    private Configuration() throws IOException {
         properties = new Properties();
         URL resource = resourceManager.getResourceByPath(MAVEN_PROPERTIES_PATH);
         InputStream is = resourceManager.read(resource);
@@ -76,23 +84,6 @@ public class Configuration {
     
     public String getApplicationVersion() {
         return properties.getProperty("version");
-    }
-    
-    public String [] getBeanConfigurations() throws IOException {
-        List<URL> urls = resourceManager.findResourcesByPattern(".*spring/[a-zA-Z0-9-_]*\\.xml");
-        String rootPath = resourceManager.getResourceByPath(MAVEN_PROPERTIES_PATH).toString();
-        rootPath = rootPath.substring(0, rootPath.length() - MAVEN_PROPERTIES_PATH.length());
-        List<String> strings = Lists.newArrayList();
-        for ( URL url : urls ) {
-            String path = url.toString();
-            if ( ! path.startsWith(rootPath)  ) {
-                log.warn("Unexpected resource path: [" + path + "] does not start with [" + rootPath + "]");
-            } else {
-                path = path.substring( rootPath.length() );
-                strings.add(path);
-            }
-        }
-        return strings.toArray( new String [0] );
     }
 
     

@@ -15,6 +15,8 @@
     <context:annotation-config />
     <task:annotation-driven/>
 
+    <bean id="configuration" class="pl.rzarajczyk.utils.application.Configuration" factory-method="instance" />
+    <bean id="application" class="pl.rzarajczyk.utils.application.Application" init-method="start" />
 
     <bean id="tray" class="pl.rzarajczyk.breaktime.Tray" depends-on="tray-icon-renderer" />
     <bean id="tray-icon-renderer" class="pl.rzarajczyk.breaktime.TrayIconRenderer" />

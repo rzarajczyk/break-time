@@ -16,8 +16,8 @@ public class ConfigurationTest {
     private Configuration configuration;
     
     @Before
-    public void setUp() throws IOException {
-        configuration = new Configuration();
+    public void setUp() throws Exception {
+        configuration = Configuration.instance();
     }
     
     @Test
@@ -50,10 +50,6 @@ public class ConfigurationTest {
         Assert.assertEquals(UIManager.getSystemLookAndFeelClassName(), configuration.getLookAndFeelName());
     }
     
-    @Test
-    public void getBeanConfigurationPathsShouldReturnCurrentJarPaths() throws IOException {
-        Assert.assertArrayEquals(new String [] {"spring/context.xml"}, configuration.getBeanConfigurations());
-    }
     
     
 }

@@ -14,22 +14,17 @@ import org.springframework.context.support.GenericApplicationContext;
 import pl.rzarajczyk.breaktime.BreakTimeSettings;
 import pl.rzarajczyk.breaktime.TrayIconRenderer;
 import pl.rzarajczyk.utils.log.LazyLogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
+
 
 public class Application {
     
-    /* Singleton */
-    private static Application instance;
-    public static Application getInstance() {
-        if ( instance == null ) {
-            instance = new Application();
-        }
-        return instance;
-    }
-    private Application() {
+    @Autowired
+    public Application(Configuration configuration) {
         try {
-            configuration = new Configuration();
-            File logFile = new File(configuration.getStorageDir(), BreakTimeSettings.LOG_FILE_NAME);
-            System.setProperty("LOG_FILE_PATH", logFile.getAbsolutePath());
+            this.configuration = configuration;
             resourcesManager = new ResourcesManager();
         } catch (Exception e) {
             Throwables.propagate(e);
@@ -49,7 +44,9 @@ public class Application {
     
     // =========================================================================
     
-    private AbstractXmlApplicationContext context;
+    @Autowired
+    private ApplicationContext context;
+    
     private Log log = LazyLogFactory.getLog(getClass());
     private Configuration configuration;
     private ResourcesManager resourcesManager;
@@ -65,18 +62,11 @@ public class Application {
             UIManager.setLookAndFeel(configuration.getLookAndFeelName());
         }
         
-        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-        factory.registerSingleton("application", this);
-        GenericApplicationContext parent = new GenericApplicationContext(factory);
-        parent.refresh();
-        
-        String [] springXmlFiles = configuration.getBeanConfigurations();
-        context = new ClassPathXmlApplicationContext(springXmlFiles, parent);
         log.info("Application started!");
     }
     
     public void stop() {
-        context.close();
+        ((ConfigurableApplicationContext) context).close();
         System.exit(0);
     }
     
