@@ -9,6 +9,7 @@ import java.io.IOException;
 import javax.annotation.PostConstruct;
 import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import pl.rzarajczyk.utils.log.LazyLogFactory;
 
 /**

@@ -10,11 +10,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skip-tests>true</skip-tests>
-        <org.springframework.version>4.3.30.RELEASE</org.springframework.version>
+        <org.springframework.version>6.1.7</org.springframework.version>
     </properties>
-    <scm>
-        <developerConnection>scm:svn:https://github.com/rzarajczyk/break-time/tags</developerConnection>
-    </scm>
     <build>
         <resources>
             <resource>
@@ -127,32 +124,12 @@
             <artifactId>platform</artifactId>
             <version>3.4.0</version>
         </dependency>
-<!--        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.10</version>
-            <scope>test</scope>
-        </dependency>-->
-		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.9</version>
+			<version>1.9.22.1</version>
 
 		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>1.6.9</version>
-		</dependency>
-
-		<dependency>
-
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>3.3.0</version>
-		</dependency>
-
     </dependencies>
     <repositories>
         <repository>

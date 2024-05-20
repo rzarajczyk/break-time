@@ -32,7 +32,7 @@ public class Tray {
     @Autowired
     private Application application;
     
-    private TrayIcon tray;
+    private TrayIcon tray = new TrayIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB), "", null);
  
     @PostConstruct
     public void open() throws InterruptedException, IOException, AWTException {
@@ -48,7 +48,6 @@ public class Tray {
         }
 
         String name = application.getConfiguration().getApplicationName();
-        tray = new TrayIcon(new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB), name, null);
         tray.setToolTip(name);
         tray.addMouseListener(new ExtendedMouseAdapter(BreakTimeSettings.DOUBLE_CLICK_TIME) {
 

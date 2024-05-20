@@ -15,49 +15,6 @@
     <context:annotation-config />
     <task:annotation-driven/>
 
-    <bean id="configuration" class="pl.rzarajczyk.utils.application.Configuration" factory-method="instance" />
-    <bean id="application" class="pl.rzarajczyk.utils.application.Application" init-method="start" />
-
-    <bean id="tray" class="pl.rzarajczyk.breaktime.Tray" depends-on="tray-icon-renderer" />
-    <bean id="tray-icon-renderer" class="pl.rzarajczyk.breaktime.TrayIconRenderer" />
-    
-    <bean id="startup-notification" class="pl.rzarajczyk.breaktime.gui.StartupNotification" />
-    <bean id="break-notification" class="pl.rzarajczyk.breaktime.gui.BreakNotification" />
-
-    <bean id="break-window" class="pl.rzarajczyk.breaktime.gui.BreakWindow" />
-    <bean id="timer-window" class="pl.rzarajczyk.breaktime.gui.TimerWindow" />
-    <bean id="settings-window" class="pl.rzarajczyk.breaktime.gui.SettingsWindow" />
-    <bean id="about-window" class="pl.rzarajczyk.breaktime.gui.AboutWindow" />
-
-    <bean id="break-manager" class="pl.rzarajczyk.breaktime.BreakManager" />
-    <bean id="settings" class="pl.rzarajczyk.breaktime.BreakTimeSettings" />
-    <bean id="localization" class="pl.rzarajczyk.breaktime.utils.localization.Localization" />
-    <!--<bean id="version-checker" class="pl.rzarajczyk.breaktime.VersionChecker" />-->
-
-    <bean id="localization-aspect" class="pl.rzarajczyk.breaktime.utils.localization.LocalizationAspect" />
-
-    <!-- =================================================================== -->
-
-    <bean id="menu" class="pl.rzarajczyk.breaktime.Menu">
-        <property name="items">
-            <list>
-                <ref bean="menu-action-pause" />
-                <ref bean="menu-action-show-timer" />
-                <ref bean="menu-action-show-settings" />
-                <ref bean="menu-action-about" />
-                <ref bean="menu-action-exit" />
-            </list>
-        </property>
-        <property name="singleClick" ref="menu-action-show-timer" />
-        <property name="doubleClick" ref="menu-action-pause" />
-    </bean>
-
-    <!-- =================================================================== -->
-
-    <bean id="menu-action-pause" class="pl.rzarajczyk.breaktime.menuitems.PauseMenuItem" />
-    <bean id="menu-action-show-timer" class="pl.rzarajczyk.breaktime.menuitems.ShowTimerMenuItem" />
-    <bean id="menu-action-show-settings" class="pl.rzarajczyk.breaktime.menuitems.SettingsMenuItem" />
-    <bean id="menu-action-about" class="pl.rzarajczyk.breaktime.menuitems.AboutMenuItem" />
-    <bean id="menu-action-exit" class="pl.rzarajczyk.breaktime.menuitems.ExitMenuItem" />
+    <bean id="cfg" class="pl.rzarajczyk.breaktime.AppConfig" />
 
 </beans>
