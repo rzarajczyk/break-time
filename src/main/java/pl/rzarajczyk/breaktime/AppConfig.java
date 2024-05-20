@@ -1,6 +1,7 @@
 package pl.rzarajczyk.breaktime;
 
 import java.util.List;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,9 +12,8 @@ import pl.rzarajczyk.breaktime.menuitems.MenuItem;
 import pl.rzarajczyk.breaktime.menuitems.PauseMenuItem;
 import pl.rzarajczyk.breaktime.menuitems.ShowTimerMenuItem;
 
-@Configuration
-//@EnableScheduling
-//@EnableAspectJAutoProxy
+@SpringBootApplication
+@EnableScheduling
 @ComponentScan(basePackages = "pl.rzarajczyk")
 public class AppConfig {
 

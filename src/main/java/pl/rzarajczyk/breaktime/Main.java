@@ -3,6 +3,7 @@ package pl.rzarajczyk.breaktime;
 import java.io.File;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 import pl.rzarajczyk.breaktime.utils.Utils;
@@ -22,7 +23,7 @@ public class Main {
         try {
             File logFile = new File(Configuration.instance().getStorageDir(), BreakTimeSettings.LOG_FILE_NAME);
             System.setProperty("LOG_FILE_PATH", logFile.getAbsolutePath());
-            new ClassPathXmlApplicationContext("/spring/context.xml");
+            SpringApplication.run(AppConfig.class, args);
         } catch (Throwable e) {
             Utils.error(null, LogFactory.getLog(Main.class), "Error during running the applicartion", e);
         }
