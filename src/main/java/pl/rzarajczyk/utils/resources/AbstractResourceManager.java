@@ -65,7 +65,7 @@ abstract class AbstractResourceManager implements ResourceManager {
 
     @Override
     public InputStream read(URL url) throws IOException {
-        return Resources.newInputStreamSupplier(url).getInput();
+        return url.openStream();
     }
     
 }

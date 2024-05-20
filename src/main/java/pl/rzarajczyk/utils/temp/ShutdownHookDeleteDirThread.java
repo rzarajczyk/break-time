@@ -3,6 +3,7 @@ package pl.rzarajczyk.utils.temp;
 import com.google.common.io.Files;
 import java.io.File;
 import java.io.IOException;
+import org.springframework.util.FileSystemUtils;
 
 /**
  *
@@ -18,11 +19,7 @@ class ShutdownHookDeleteDirThread extends Thread {
     }
 
     @Override
-    public void run() {
-        try {
-            Files.deleteRecursively(dir);
-        } catch (IOException e) {
-            // ignore
-        }
+    public void run() {      
+        FileSystemUtils.deleteRecursively(dir);
     }
 }
