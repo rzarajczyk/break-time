@@ -33,19 +33,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>21</source>
+                    <target>21</target>
                 </configuration>
                 <version>3.8.1</version>
             </plugin>
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12</version>
                 <configuration>
                     <skipTests>${skip-tests}</skipTests>
                 </configuration>
-            </plugin>
+            </plugin>-->
 
             <!-- builds executable jar -->
 <!--            <plugin>
@@ -63,7 +63,7 @@
             </plugin>-->
 
             <!-- builds executable jar with dependencies -->
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <executions>
@@ -88,7 +88,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
     <dependencies>
@@ -110,18 +110,12 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>r09</version>
+            <version>33.2.0-jre</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.16</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>1.9.0-rc1</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.java.dev.jna</groupId>
@@ -133,11 +127,12 @@
             <artifactId>platform</artifactId>
             <version>3.4.0</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
-        </dependency>
+            <scope>test</scope>
+        </dependency>-->
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
@@ -169,21 +164,21 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
+<!--        <repository>
             <id>akathist-repository</id>
             <name>Akathist Repository</name>
             <url>http://www.9stmaryrd.com/maven</url>
-        </repository>
+        </repository>-->
     </repositories>
-    <pluginRepositories>
+<!--    <pluginRepositories>
         <pluginRepository>
             <id>akathist-repository</id>
             <name>Akathist Repository</name>
             <url>http://www.9stmaryrd.com/maven</url>
         </pluginRepository>
-    </pluginRepositories>
+    </pluginRepositories>-->
 
-    <profiles>
+<!--    <profiles>
         <profile>
             <id>deployment</id>
             <properties>
@@ -206,7 +201,7 @@
                                     <outfile>target/${project.artifactId}-${project.version}.exe</outfile>
                                     <jar>target/${project.artifactId}-${project.version}.jar</jar>
                                     <errTitle>${project.name}</errTitle>
-        <!--                            <icon>src/main/resources/tray-icon.png</icon>-->
+                                    <icon>src/main/resources/tray-icon.png</icon>
                                     <classPath>
                                         <mainClass>pl.rzarajczyk.breaktime.Main</mainClass>
                                         <addDependencies>true</addDependencies>
@@ -241,5 +236,5 @@
                 </plugins>
             </build>
         </profile>
-    </profiles>
+    </profiles>-->
 </project>
