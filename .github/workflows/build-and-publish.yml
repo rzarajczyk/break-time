@@ -26,5 +26,5 @@ jobs:
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v4
         with:
-          name: Package
+          name: break-time.zip
           path: staging
