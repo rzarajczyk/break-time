@@ -70,7 +70,7 @@ public class SettingsWindow extends ExtendedJFrame {
             notificationEnabled.setSelected( settings.isShowNotificationEnabled() );
             notificationOffset.setText(Integer.toString(settings.getShowNotificationOffset() / Utils.SECOND));
             notificationOffset.setEditable( settings.isShowNotificationEnabled() );
-            checkForUpdates.setSelected( settings.isCheckForUpdates() );
+//            checkForUpdates.setSelected( settings.isCheckForUpdates() );
 
             DefaultComboBoxModel m = (DefaultComboBoxModel) monitorPowerUsageControll.getModel();
             m.setSelectedItem( settings.getMonitorPowerUsageControll() );
@@ -117,7 +117,6 @@ public class SettingsWindow extends ExtendedJFrame {
         notificationEnabled = new javax.swing.JCheckBox();
         notificationOffset = new javax.swing.JTextField();
         secLabel = new javax.swing.JLabel();
-        checkForUpdates = new javax.swing.JCheckBox();
         okButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
@@ -159,8 +158,6 @@ public class SettingsWindow extends ExtendedJFrame {
 
         secLabel.setText("sec");
 
-        checkForUpdates.setText("Check for updates at startup");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -188,8 +185,7 @@ public class SettingsWindow extends ExtendedJFrame {
                         .addComponent(secLabel))
                     .addComponent(showProgress)
                     .addComponent(showCursor)
-                    .addComponent(autostart)
-                    .addComponent(checkForUpdates))
+                    .addComponent(autostart))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,9 +217,7 @@ public class SettingsWindow extends ExtendedJFrame {
                 .addComponent(showCursor)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(autostart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(checkForUpdates)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         okButton.setText("OK");
@@ -277,8 +271,8 @@ public class SettingsWindow extends ExtendedJFrame {
             settings.setShowCursor( this.showCursor.isSelected() );
             settings.setMonitorPowerUsageControll( (MonitorPowerUsageControllState) this.monitorPowerUsageControll.getSelectedItem() );
             settings.setShowNotificationEnabled( this.notificationEnabled.isSelected() );
-            settings.setShowNotificationOffset( Integer.valueOf( this.notificationOffset.getText() ) * Utils.SECOND );
-            settings.setCheckForUpdates( checkForUpdates.isSelected() );
+            settings.setShowNotificationOffset( Integer.parseInt( this.notificationOffset.getText() ) * Utils.SECOND );
+            settings.setCheckForUpdates( false/*checkForUpdates.isSelected()*/ );
             localization.setLocale((Locale) this.languageCombo.getSelectedItem());
             settings.triggerUpdate();
             setVisible(false);
@@ -301,7 +295,6 @@ public class SettingsWindow extends ExtendedJFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox autostart;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JCheckBox checkForUpdates;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox languageCombo;
     private javax.swing.JLabel languageLabel;
