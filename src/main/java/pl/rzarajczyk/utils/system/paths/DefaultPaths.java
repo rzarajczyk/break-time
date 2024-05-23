@@ -62,7 +62,7 @@ public class DefaultPaths implements Paths {
             File tmp = File.createTempFile("test", "test");
             tmp.deleteOnExit();
             String path = tmp.getAbsolutePath();
-            System.out.println(path);
+//            System.out.println(path);
             int index = path.lastIndexOf(File.separator);
             path = path.substring(0, index);
             return new File(path);

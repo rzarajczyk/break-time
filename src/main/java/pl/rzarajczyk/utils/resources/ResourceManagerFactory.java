@@ -25,14 +25,11 @@ public class ResourceManagerFactory {
     }
     
     static DeployType getDeployType(URI uri) throws IOException {
-        File file = new File(uri);
-        if ( file.isFile() && file.getName().endsWith(".jar") )
-            return DeployType.JAR;
-        if ( file.isFile() && file.getName().endsWith(".exe") )
-            return DeployType.JAR;
-        if ( file.isDirectory() ) 
-            return DeployType.DIR;
-        throw new IOException("Cannot determine deploy type for sources located in [" + uri + "]");
+        return switch (uri.getScheme()) {
+            case "file" -> DeployType.DIR;
+            case "jar" -> DeployType.JAR;
+            default -> throw new IOException("Cannot determine deploy type for sources located in [" + uri + "]");
+        };
     }
     
     public static DeployType getDeployType() throws IOException {
