@@ -23,7 +23,7 @@ jobs:
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
 
-      - run: mkdir staging-exe && cp target/*.jar staging-jar
+      - run: mkdir staging-jar && cp target/*.jar staging-jar
       - uses: actions/upload-artifact@v4
         with:
           name: break-time.jar.zip
