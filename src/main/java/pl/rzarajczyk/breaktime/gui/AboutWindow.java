@@ -206,11 +206,11 @@ public class AboutWindow extends ExtendedJFrame  {
     }//GEN-LAST:event_lisenseLabelMouseClicked
 
     private void authorLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_authorLabelMouseClicked
-        go("http://www.rafal-zarajczyk.pl");
+        go("http://www.zarajczyk.pl");
     }//GEN-LAST:event_authorLabelMouseClicked
 
     private void urlLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_urlLabelMouseClicked
-        go("https://code.google.com/p/break-time");
+        go("https://github.com/rzarajczyk/break-time");
     }//GEN-LAST:event_urlLabelMouseClicked
 
     private void okButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okButtonMouseClicked
