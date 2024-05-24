@@ -22,16 +22,3 @@ jobs:
 
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
-#
-#      - run: mkdir staging-jar && cp target/*.jar staging-jar
-#      - uses: actions/upload-artifact@v4
-#        with:
-#          name: break-time.jar
-#          path: staging-jar
-#          retention-days: 90
-#      - run: mkdir staging-exe && cp target/*.exe staging-exe
-#      - uses: actions/upload-artifact@v4
-#        with:
-#          name: break-time.exe
-#          path: staging-exe
-#          retention-days: 90
